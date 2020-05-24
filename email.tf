@@ -1,11 +1,9 @@
 resource "aws_route53_record" "email_mx" {
-  zone_id         = data.terraform_remote_state.dns.outputs.zone_id
-  name            = ""
-  type            = "MX"
-  ttl             = 21600
-  records         = ["10 mail.intimitrons.ca."]
-  // Workaround for being unable to import records at apex (https://github.com/terraform-providers/terraform-provider-aws/issues/2160)
-  allow_overwrite = true
+  zone_id = data.terraform_remote_state.dns.outputs.zone_id
+  name    = ""
+  type    = "MX"
+  ttl     = 21600
+  records = ["10 mail.intimitrons.ca."]
 }
 
 // mail.intimitrons.ca is currently in use by mail clients
@@ -28,13 +26,11 @@ resource "aws_route53_record" "email_webmail" {
 }
 
 resource "aws_route53_record" "email_spf" {
-  zone_id         = data.terraform_remote_state.dns.outputs.zone_id
-  name            = ""
-  type            = "TXT"
-  ttl             = 900
-  records         = ["v=spf1 +a +mx include:reliablemail.org ~all"]
-  // Workaround for being unable to import records at apex (https://github.com/terraform-providers/terraform-provider-aws/issues/2160)
-  allow_overwrite = true
+  zone_id = data.terraform_remote_state.dns.outputs.zone_id
+  name    = ""
+  type    = "TXT"
+  ttl     = 900
+  records = ["v=spf1 +a +mx include:reliablemail.org ~all"]
 }
 
 // Private key can be retrieved from cPanel
