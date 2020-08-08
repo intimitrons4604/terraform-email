@@ -1,5 +1,5 @@
 resource "aws_ses_domain_identity" "main" {
-  domain = "intimitrons.ca"
+  domain = trimsuffix(data.terraform_remote_state.dns.outputs.fqdn, ".")
 }
 
 resource "aws_route53_record" "aws_ses_verification" {
