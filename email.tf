@@ -30,7 +30,7 @@ resource "aws_route53_record" "email_spf" {
   name    = ""
   type    = "TXT"
   ttl     = 86400
-  records = ["v=spf1 +a +mx include:reliablemail.org ~all"]
+  records = ["v=spf1 +a +mx +ip4:198.20.71.150 include:reliablemail.org ~all"]
 }
 
 // Private key can be retrieved from cPanel
