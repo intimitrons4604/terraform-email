@@ -3,7 +3,7 @@ resource "aws_route53_record" "email_mx" {
   name    = ""
   type    = "MX"
   ttl     = 300
-  records = ["10 mail.intimitrons.ca."]
+  records = ["20 mail.intimitrons.ca."]
 }
 
 // mail.intimitrons.ca is currently in use by mail clients
@@ -30,7 +30,7 @@ resource "aws_route53_record" "email_spf" {
   name    = ""
   type    = "TXT"
   ttl     = 300
-  records = ["v=spf1 +a +mx +ip4:198.20.71.150 include:reliablemail.org ~all"]
+  records = ["v=spf1 +ip4:198.20.92.28 +ip4:198.20.71.150 include:reliablemail.org include:_spf.google.com ~all"]
 }
 
 // Private key can be retrieved from cPanel
