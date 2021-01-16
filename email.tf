@@ -2,7 +2,7 @@ resource "aws_route53_record" "email_mx" {
   zone_id = data.terraform_remote_state.dns.outputs.zone_id
   name    = ""
   type    = "MX"
-  ttl     = 3600
+  ttl     = 300
   records = ["10 mail.intimitrons.ca."]
 }
 
@@ -29,7 +29,7 @@ resource "aws_route53_record" "email_spf" {
   zone_id = data.terraform_remote_state.dns.outputs.zone_id
   name    = ""
   type    = "TXT"
-  ttl     = 3600
+  ttl     = 300
   records = ["v=spf1 +a +mx +ip4:198.20.71.150 include:reliablemail.org ~all"]
 }
 
