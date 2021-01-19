@@ -2,7 +2,7 @@ resource "aws_route53_record" "email_mx" {
   zone_id = data.terraform_remote_state.dns.outputs.zone_id
   name    = ""
   type    = "MX"
-  ttl     = 300
+  ttl     = 5
   records = ["20 mail.intimitrons.ca."]
 }
 
