@@ -8,8 +8,7 @@ resource "aws_route53_record" "email_mx" {
     "5 alt1.aspmx.l.google.com.",
     "5 alt2.aspmx.l.google.com.",
     "10 alt3.aspmx.l.google.com.",
-    "10 alt4.aspmx.l.google.com.",
-    "20 mail.intimitrons.ca."
+    "10 alt4.aspmx.l.google.com."
   ]
 }
 
