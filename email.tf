@@ -2,7 +2,7 @@ resource "aws_route53_record" "email_mx" {
   zone_id = data.terraform_remote_state.dns.outputs.zone_id
   name    = ""
   type    = "MX"
-  ttl     = 5
+  ttl     = 300
   records = [
     "1 aspmx.l.google.com.",
     "5 alt1.aspmx.l.google.com.",
