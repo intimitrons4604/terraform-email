@@ -3,7 +3,14 @@ resource "aws_route53_record" "email_mx" {
   name    = ""
   type    = "MX"
   ttl     = 5
-  records = ["20 mail.intimitrons.ca."]
+  records = [
+    "1 aspmx.l.google.com.",
+    "5 alt1.aspmx.l.google.com.",
+    "5 alt2.aspmx.l.google.com.",
+    "10 alt3.aspmx.l.google.com.",
+    "10 alt4.aspmx.l.google.com.",
+    "20 mail.intimitrons.ca."
+  ]
 }
 
 // mail.intimitrons.ca is currently in use by mail clients
